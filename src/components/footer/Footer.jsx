@@ -3,7 +3,10 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <div className="foot">
-      <p className="foot__legal">Made for an exercise of The Bridge</p>
+      <p className="foot__legal">
+        Made for an exercise of{" "}
+        <span className="foot__highlight">The Bridge</span>
+      </p>
 
       <p className="foot__credits">
         Page made by{" "}

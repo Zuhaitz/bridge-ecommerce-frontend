@@ -9,6 +9,13 @@
   color: $ternary-text-color;
 
   &__link {
+    font-weight: bold;
+    color: $primary-text-color;
+  }
+
+  &__highlight {
+    font-style: italic;
+    font-weight: bold;
     color: $primary-text-color;
   }
 }
