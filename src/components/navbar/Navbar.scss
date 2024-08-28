@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 60px;
+  padding: 0 20px;
+
+  background-color: $primary-color;
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+    color: $secondary-text-color;
+  }
+
+  &__links {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100px;
+
+    font-size: 18px;
+
+    color: $secondary-text-color;
+
+    &:hover {
+      font-weight: bold;
+
+      color: $primary-color;
+      background-color: $secondary-text-color;
+    }
+  }
+}

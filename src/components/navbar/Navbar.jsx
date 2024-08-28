@@ -1,13 +1,19 @@
-import React from "react";
+import "./Navbar.scss";
 
 const Navbar = () => {
   return (
-    <nav>
-      <a href="/">Store</a>
+    <nav className="navbar">
+      <a href="/" className="navbar__title">
+        <p>Store</p>
+      </a>
 
-      <div>
-        <a href="/">Home</a>
-        <a href="#">Catalog</a>
+      <div className="navbar__links">
+        <a href="/" className="navbar__link">
+          <p>Home</p>
+        </a>
+        <a href="#" className="navbar__link">
+          <p>Catalog</p>
+        </a>
       </div>
     </nav>
   );
