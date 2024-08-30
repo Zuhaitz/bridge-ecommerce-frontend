@@ -11,7 +11,7 @@ const initialState = {
   user: null,
 };
 
-const API_URL = "http://localhost:3001";
+const API_URL = "http://localhost:3000";
 
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
@@ -23,10 +23,6 @@ export const UserProvider = ({ children }) => {
       type: "REGISTER",
       payload: res.data,
     });
-
-    if (res.data) {
-      localStorage.setItem("token", JSON.stringify(res.data.token));
-    }
   };
 
   return (

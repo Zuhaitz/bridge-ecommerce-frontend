@@ -1,8 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { UserProvider } from "./context/UserContext/UserState";
+
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Footer from "./components/footer/Footer";
-import { UserProvider } from "./context/UserContext/UserState";
+import Register from "./pages/register/Register";
 
 function App() {
   return (
@@ -16,6 +19,7 @@ function App() {
           <main className="main">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/register" element={<Register />} />
             </Routes>
           </main>
 
