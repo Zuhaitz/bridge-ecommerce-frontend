@@ -34,11 +34,23 @@
 
   &__field {
     width: 100%;
-    background-color: $background-color;
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 5px;
+
+    border: 2px solid $background-color;
     border-radius: 15px;
     overflow: hidden;
+
+    background-color: $background-color;
 
     input {
       width: 100%;
@@ -54,16 +66,27 @@
       background-color: $background-color;
     }
 
+    &--error {
+      border: 2px solid $error-color;
+    }
+
     ::placeholder {
       color: $primary-text-color;
       font-weight: normal;
     }
   }
 
+  &__error {
+    height: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    color: $error-color;
+  }
+
   &__button {
     width: 50%;
     padding: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
 
     font-size: 18px;
     font-weight: bold;
