@@ -1,5 +1,8 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
+
+import "./Login.scss";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -11,14 +14,40 @@ const Login = () => {
 
   const [formData, setFormData] = useState(initialValue);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  const validateForm = () => {
+    const errorList = {};
+    const { name, password } = formData;
+
+    if (name.length === 0) errorList.name = "Fill username field.";
+    if (password.length === 0) errorList.password = "Fill password field.";
+
+    return errorList;
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const errorList = validateForm();
+    if (Object.keys(errorList).length > 0) return setErrors(errorList);
+
+    try {
+      clearState();
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const clearState = () => {
+    setFormData({ ...initialValue });
+    setErrors({});
   };
 
   return (
@@ -28,10 +57,12 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="login__form" noValidate>
           <div className="login__field">
+            <label htmlFor="name" className="login__fieldLabel">
+              Username or Email:
+            </label>
             <div
               className={`login__input ${errors.name && "login__input--error"}`}
             >
-              {/* <label htmlFor="name">Username or Email: </label> */}
               <input
                 type="text"
                 name="name"
@@ -40,16 +71,17 @@ const Login = () => {
                 onChange={handleChange}
               />
             </div>
-            <p className="login__error">{errors.name}</p>
           </div>
 
           <div className="login__field">
+            <label htmlFor="password" className="login__fieldLabel">
+              Password:
+            </label>
             <div
               className={`login__input ${
                 errors.password && "login__input--error"
               }`}
             >
-              {/* <label htmlFor="password">Password: </label> */}
               <input
                 type="password"
                 name="password"
@@ -59,13 +91,16 @@ const Login = () => {
                 autoComplete="off"
               />
             </div>
-            <p className="login__error">{errors.password}</p>
           </div>
 
           <button type="submit" className="login__button">
             Login
           </button>
         </form>
+
+        <p className="login__signUp">
+          Don't have an account? <a href="/register">Sign Up</a>
+        </p>
       </div>
     </section>
   );
