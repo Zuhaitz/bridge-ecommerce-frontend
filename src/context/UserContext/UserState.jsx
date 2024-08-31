@@ -25,12 +25,26 @@ export const UserProvider = ({ children }) => {
     });
   };
 
+  const login = async (user) => {
+    const res = await axios.post(`${API_URL}/users/login`, user);
+
+    dispatch({
+      type: "LOGIN",
+      payload: res.data,
+    });
+
+    if (res.data) {
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
         token: state.token,
         user: state.user,
         register,
+        login,
       }}
     >
       {children}
