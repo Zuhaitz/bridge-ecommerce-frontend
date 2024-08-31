@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
 
@@ -46,7 +46,6 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // setErrors({});
 
     const errorList = validateForm();
 
