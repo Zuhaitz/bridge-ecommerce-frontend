@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
 
+import "./Register.scss";
+
 const Register = () => {
   const { register } = useContext(UserContext);
 
@@ -23,7 +25,9 @@ const Register = () => {
       clearState();
       navigate("/");
     } catch (error) {
-      console.error(error);
+      const { messages } = error.response.data;
+      console.error(error.response);
+      console.log(messages);
     }
   };
 
@@ -38,40 +42,46 @@ const Register = () => {
 
   return (
     <section className="register">
-      <div className="container">
-        <h1 className="register__title">Create an account</h1>
+      <div className="register__container">
+        <h1 className="register__title">Create Account</h1>
 
         <form onSubmit={handleSubmit} className="register__form">
           <div className="register__field">
-            <label htmlFor="name">Username: </label>
+            {/* <label htmlFor="name">Username: </label> */}
             <input
               type="text"
               name="name"
               id="name"
+              placeholder="Name"
               value={formData.name}
               onChange={handleChange}
+              autoComplete="off"
             />
           </div>
 
           <div className="register__field">
-            <label htmlFor="email">Email: </label>
+            {/* <label htmlFor="email">Email: </label> */}
             <input
               type="email"
               name="email"
               id="email"
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="off"
             />
           </div>
 
           <div className="register__field">
-            <label htmlFor="password">Password: </label>
+            {/* <label htmlFor="password">Password: </label> */}
             <input
               type="password"
               name="password"
               id="password"
+              placeholder="Password"
               value={formData.password}
               onChange={handleChange}
+              autoComplete="off"
             />
           </div>
 
