@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext/UserState";
+
 import "./Navbar.scss";
 
 const Navbar = () => {
+  const { token } = useContext(UserContext);
+
   return (
     <nav className="navbar">
       <a href="/" className="navbar__title">
@@ -14,12 +19,18 @@ const Navbar = () => {
         <a href="#" className="navbar__link">
           <p>Catalog</p>
         </a>
-        <a href="/register" className="navbar__link">
-          <p>Sign Up</p>
-        </a>
-        <a href="/login" className="navbar__link">
-          <p>Login</p>
-        </a>
+        {token ? (
+          <></>
+        ) : (
+          <>
+            <a href="/register" className="navbar__link">
+              <p>Sign Up</p>
+            </a>
+            <a href="/login" className="navbar__link">
+              <p>Login</p>
+            </a>
+          </>
+        )}
       </div>
     </nav>
   );

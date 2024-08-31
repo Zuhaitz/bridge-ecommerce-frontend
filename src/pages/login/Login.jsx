@@ -14,6 +14,7 @@ const Login = () => {
 
   const [formData, setFormData] = useState(initialValue);
   const [errors, setErrors] = useState({});
+  const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
 
   const validateForm = () => {
@@ -33,10 +34,13 @@ const Login = () => {
     if (Object.keys(errorList).length > 0) return setErrors(errorList);
 
     try {
+      await login(formData);
+
       clearState();
       navigate("/");
     } catch (error) {
       console.error(error);
+      setLoginError(error.response.data.message);
     }
   };
 
@@ -48,12 +52,17 @@ const Login = () => {
   const clearState = () => {
     setFormData({ ...initialValue });
     setErrors({});
+    setLoginError("");
   };
 
   return (
     <section className="login">
       <div className="login__container">
         <h1 className="login__title">Login</h1>
+
+        <div className="login__error">
+          <p>{loginError}</p>
+        </div>
 
         <form onSubmit={handleSubmit} className="login__form" noValidate>
           <div className="login__field">

@@ -14,7 +14,7 @@
   }
 
   &__title {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 
     text-align: center;
     font-size: 50px;
@@ -86,10 +86,15 @@
   }
 
   &__error {
-    height: 14px;
-    font-size: 14px;
-    font-weight: bold;
-    color: $error-color;
+    padding: 5px;
+
+    p {
+      height: 18px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      color: $error-color;
+    }
   }
 
   &__button {
