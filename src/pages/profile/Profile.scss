@@ -2,9 +2,9 @@
   &__user {
     display: flex;
     gap: 50px;
-    padding: 20px 80px 40px;
     /* Arriba | Derecha | Abajo | Izquierda */
-    margin: 0 20px 0 20px;
+    padding: 20px 80px 40px;
+    margin: 0 30px;
 
     border-bottom: 2px solid $ternary-text-color;
   }
