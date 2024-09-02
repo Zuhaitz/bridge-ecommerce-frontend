@@ -9,6 +9,7 @@ const token = JSON.parse(localStorage.getItem("token"));
 const initialState = {
   token: token || null,
   user: null,
+  orders: [],
 };
 
 const API_URL = "http://localhost:3000";
@@ -38,6 +39,27 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const getUserInfo = async () => {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+
+      const res = await axios.get(`${API_URL}/users/`, {
+        headers: {
+          authorization: token,
+        },
+      });
+
+      dispatch({
+        type: "GET_USER_INFO",
+        payload: res.data,
+      });
+
+      // return res;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -45,6 +67,7 @@ export const UserProvider = ({ children }) => {
         user: state.user,
         register,
         login,
+        getUserInfo,
       }}
     >
       {children}

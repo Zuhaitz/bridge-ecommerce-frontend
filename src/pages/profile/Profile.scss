@@ -1,0 +1,65 @@
+.profile {
+  &__user {
+    display: flex;
+    gap: 50px;
+    padding: 20px 80px 40px;
+    /* Arriba | Derecha | Abajo | Izquierda */
+    margin: 0 20px 0 20px;
+
+    border-bottom: 2px solid $ternary-text-color;
+  }
+
+  &__pic {
+    width: 240px;
+    height: 240px;
+
+    border-radius: 100%;
+
+    background-color: $background-color;
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    gap: 5px;
+
+    padding: 20px 0;
+  }
+
+  &__name {
+    font-size: 32px;
+    font-weight: bold;
+
+    color: $primary-text-color;
+  }
+
+  &__email {
+    font-size: 20px;
+
+    color: $ternary-text-color;
+  }
+
+  &__orders {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 30px;
+    font-size: 24px;
+    color: $ternary-text-color;
+
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 50px;
+      height: 50px;
+
+      border-radius: 100%;
+      color: $secondary-text-color;
+      background-color: $primary-color;
+    }
+  }
+}
