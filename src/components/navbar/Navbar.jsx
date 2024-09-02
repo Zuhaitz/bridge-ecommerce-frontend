@@ -20,7 +20,11 @@ const Navbar = () => {
           <p>Catalog</p>
         </a>
         {token ? (
-          <></>
+          <>
+            <a href="/profile" className="navbar__link">
+              <p>My Profile</p>
+            </a>
+          </>
         ) : (
           <>
             <a href="/register" className="navbar__link">
