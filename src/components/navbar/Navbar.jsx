@@ -4,7 +4,7 @@ import { UserContext } from "../../context/UserContext/UserState";
 import "./Navbar.scss";
 
 const Navbar = () => {
-  const { token } = useContext(UserContext);
+  const { token, logout } = useContext(UserContext);
 
   return (
     <nav className="navbar">
@@ -23,6 +23,10 @@ const Navbar = () => {
           <>
             <a href="/profile" className="navbar__link">
               <p>Profile</p>
+            </a>
+
+            <a onClick={logout} className="navbar__link">
+              <p>Sign Out</p>
             </a>
           </>
         ) : (
