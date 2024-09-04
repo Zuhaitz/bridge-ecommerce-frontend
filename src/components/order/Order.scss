@@ -1,0 +1,14 @@
+.order {
+  padding: 15px;
+  margin: 20px;
+
+  border: 2px solid $primary-text-color;
+  border-radius: 15px;
+
+  &__title {
+    font-weight: bold;
+    font-size: 30px;
+
+    color: $primary-text-color;
+  }
+}

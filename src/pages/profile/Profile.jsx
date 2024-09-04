@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
+import Order from "../../components/order/Order";
 
 import "./Profile.scss";
 
@@ -32,6 +33,14 @@ const Profile = () => {
           <p>Loading...</p>
         )}
       </div>
+
+      {orders && (
+        <div>
+          {orders.map((order) => {
+            return <Order order={order} key={order.id} />;
+          })}
+        </div>
+      )}
     </section>
   );
 };
