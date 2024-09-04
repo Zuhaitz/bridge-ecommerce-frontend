@@ -1,21 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import { ProductContext } from "../../context/ProductContext/ProductState";
-
-const ProductDetail = () => {
-  const { products, getProducts } = useContext(ProductContext);
-
-  useEffect(() => {
-    getProducts();
-    console.log("me");
-  }, []);
-
+const ProductDetail = ({ product }) => {
+  const { name, description, price } = product;
   return (
-    products &&
-    products.map((product) => (
-      <div className="product" key={product._id}>
-        <h2>{product.title}</h2>
-      </div>
-    ))
+    <div className="product">
+      <p>{name}</p>
+      <p>{description}</p>
+      <p>{price}</p>
+    </div>
   );
 };
 export default ProductDetail;
