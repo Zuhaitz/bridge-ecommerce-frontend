@@ -84,6 +84,7 @@ export const UserProvider = ({ children }) => {
       value={{
         token: state.token,
         user: state.user,
+        orders,
         register,
         login,
         logout,
