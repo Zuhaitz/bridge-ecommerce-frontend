@@ -11,12 +11,29 @@ const Profile = () => {
     getUserInfo();
   }, []);
 
+  const uploadImage = (event) => {
+    console.log("me", event.target.files);
+  };
+
   return (
     <section className="profile">
       <div className="profile__user">
         {user ? (
           <>
-            <div className="profile__pic" />
+            {user.picture ? (
+              <img
+                src={user.picture}
+                alt={`${user.name}'s profile picture`}
+                className="profile__pic"
+              />
+            ) : (
+              <div className="profile__pic">
+                <label htmlFor="picture" className="profile__upload">
+                  <p>+</p>
+                </label>
+                <input id="picture" type="file" onInput={uploadImage} />
+              </div>
+            )}
 
             <div className="profile__data">
               <p className="profile__name">{user.name}</p>

@@ -10,12 +10,42 @@
   }
 
   &__pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 240px;
     height: 240px;
 
     border-radius: 100%;
 
     background-color: $background-color;
+
+    input[type="file"] {
+      display: none;
+    }
+  }
+
+  &__upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 70px;
+
+    cursor: pointer;
+
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 60px;
+      height: 60px;
+
+      border-radius: 100%;
+      color: $secondary-text-color;
+      background-color: $primary-color;
+    }
   }
 
   &__data {
