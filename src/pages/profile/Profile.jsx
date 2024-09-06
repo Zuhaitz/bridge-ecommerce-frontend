@@ -35,7 +35,7 @@ const Profile = () => {
       </div>
 
       {orders && (
-        <div>
+        <div className="profile__orderList">
           {orders.map((order) => {
             return <Order order={order} key={order.id} />;
           })}
