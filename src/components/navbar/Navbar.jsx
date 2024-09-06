@@ -32,7 +32,7 @@ const Navbar = () => {
               <p>Profile</p>
             </a>
 
-            <a onClick={logout} className="navbar__link">
+            <a onClick={signOut} className="navbar__link">
               <p>Sign Out</p>
             </a>
           </>
