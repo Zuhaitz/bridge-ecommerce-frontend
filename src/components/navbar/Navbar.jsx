@@ -1,10 +1,17 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
 
 import "./Navbar.scss";
 
 const Navbar = () => {
   const { token, logout } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const signOut = async () => {
+    await logout();
+    navigate("/");
+  };
 
   return (
     <nav className="navbar">
