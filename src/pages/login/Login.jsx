@@ -67,7 +67,7 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="login__form" noValidate>
           <div className="login__field">
             <label htmlFor="name" className="login__fieldLabel">
-              Username or Email:
+              Username:
             </label>
             <div
               className={`login__input ${errors.name && "login__input--error"}`}

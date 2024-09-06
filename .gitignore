@@ -1,3 +1,6 @@
+# VS Code data
+.vscode/
+
 # Logs
 logs
 *.log
