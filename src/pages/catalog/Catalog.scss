@@ -1,5 +1,28 @@
-.list {
+.catalog {
   height: 100%;
   padding: 20px;
   background-color: $background-color;
+
+  &__search {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 8px;
+    margin-bottom: 30px;
+
+    padding: 10px;
+  }
+
+  &__searchName {
+    width: 80%;
+    padding: 10px 20px;
+
+    font-size: 18px;
+
+    border: 2px solid $primary-text-color;
+    border-radius: 24px;
+    outline: none;
+
+    background-color: $secondary-text-color;
+  }
 }
