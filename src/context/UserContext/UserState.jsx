@@ -79,6 +79,27 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const updatePicture = async (data) => {
+    console.log(data);
+
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+
+      const res = await axios.post(`${API_URL}/users/profile`, data, {
+        headers: {
+          authorization: token,
+        },
+      });
+
+      dispatch({
+        type: "UPDATE_PICTURE",
+        payload: res.data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -89,6 +110,7 @@ export const UserProvider = ({ children }) => {
         login,
         logout,
         getUserInfo,
+        updatePicture,
       }}
     >
       {children}

@@ -16,6 +16,8 @@
     width: 240px;
     height: 240px;
 
+    overflow: hidden;
+
     border-radius: 100%;
 
     background-color: $background-color;
@@ -23,9 +25,23 @@
     input[type="file"] {
       display: none;
     }
+
+    img {
+      pointer-events: none;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  &__pic:hover {
+    label {
+      visibility: visible;
+    }
   }
 
   &__upload {
+    position: absolute;
+    visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;

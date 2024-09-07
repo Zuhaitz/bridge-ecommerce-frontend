@@ -25,6 +25,12 @@ const users = (state, action) => {
         orders: action.payload.orders,
       };
 
+    case "UPDATE_PICTURE":
+      state.user.picture = action.payload.path;
+      return {
+        ...state,
+      };
+
     default:
       return state;
   }

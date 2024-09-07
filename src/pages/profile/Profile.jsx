@@ -5,14 +5,20 @@ import Order from "../../components/order/Order";
 import "./Profile.scss";
 
 const Profile = () => {
-  const { user, orders, getUserInfo } = useContext(UserContext);
+  const { user, orders, getUserInfo, updatePicture } = useContext(UserContext);
 
   useEffect(() => {
     getUserInfo();
   }, []);
 
-  const uploadImage = (event) => {
-    console.log("me", event.target.files);
+  const uploadImage = async (event) => {
+    const formData = new FormData();
+    formData.append("picture", event.target.files[0]);
+    formData.append("name", event.target.files[0].name);
+
+    await updatePicture(formData);
+
+    console.log(user);
   };
 
   return (
@@ -21,11 +27,16 @@ const Profile = () => {
         {user ? (
           <>
             {user.picture ? (
-              <img
-                src={user.picture}
-                alt={`${user.name}'s profile picture`}
-                className="profile__pic"
-              />
+              <div className="profile__pic">
+                <img
+                  src={user.picture}
+                  alt={`${user.name}'s profile picture`}
+                />
+                <label htmlFor="picture" className="profile__upload">
+                  <p>+</p>
+                </label>
+                <input id="picture" type="file" onInput={uploadImage} />
+              </div>
             ) : (
               <div className="profile__pic">
                 <label htmlFor="picture" className="profile__upload">
