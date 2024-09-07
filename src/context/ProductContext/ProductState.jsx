@@ -4,6 +4,7 @@ import axios from "axios";
 
 const initialState = {
   products: [],
+  cart: [],
 };
 
 export const ProductProvider = ({ children }) => {
@@ -18,11 +19,20 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
+  const addCart = (product) => {
+    dispatch({
+      type: "ADD_CART",
+      payload: product,
+    });
+  };
+
   return (
     <ProductContext.Provider
       value={{
         products: state.products,
+        cart: state.cart,
         getProducts,
+        addCart,
       }}
     >
       {children}
