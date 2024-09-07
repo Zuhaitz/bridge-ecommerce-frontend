@@ -1,8 +1,40 @@
-# React + Vite
+# E-Commerce App FrontEnd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend implementation of a frontend app, making use of Vite, React, SaSS and Axios to upload data to our backend.
 
-Currently, two official plugins are available:
+You can find the backend of the app [here](https://github.com/Zuhaitz/bridge-ecommerce-backend).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Authors
+
+- [Carlota Ruiz](https://github.com/CarBlank)
+- [Zuhaitz Martínez](https://github.com/Zuhaitz)
+
+## Acknowledgements
+
+- [Cloudinary](https://cloudinary.com)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Zuhaitz/bridge-ecommerce-frontend
+```
+
+Go to the project directory
+
+```bash
+  cd bridge-ecommerce-frontend
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
