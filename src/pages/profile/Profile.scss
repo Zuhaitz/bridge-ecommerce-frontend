@@ -34,14 +34,13 @@
   }
 
   &__pic:hover {
-    label {
+    .hide {
       visibility: visible;
     }
   }
 
   &__upload {
     position: absolute;
-    visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,4 +115,8 @@
     margin: 30px;
     padding: 0 20px;
   }
+}
+
+.hide {
+  visibility: hidden;
 }

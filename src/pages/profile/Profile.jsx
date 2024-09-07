@@ -12,13 +12,13 @@ const Profile = () => {
   }, []);
 
   const uploadImage = async (event) => {
+    if (event.target.files.length === 0) return;
+
     const formData = new FormData();
     formData.append("picture", event.target.files[0]);
     formData.append("name", event.target.files[0].name);
 
     await updatePicture(formData);
-
-    console.log(user);
   };
 
   return (
@@ -32,7 +32,7 @@ const Profile = () => {
                   src={user.picture}
                   alt={`${user.name}'s profile picture`}
                 />
-                <label htmlFor="picture" className="profile__upload">
+                <label htmlFor="picture" className="profile__upload hide">
                   <p>+</p>
                 </label>
                 <input id="picture" type="file" onInput={uploadImage} />
