@@ -27,7 +27,7 @@ const Catalog = () => {
     );
   }, [search]);
 
-  const filter = (event) => {
+  const onSearchChangeHandler = (event) => {
     const { value } = event.target;
     setSearch(value);
   };
@@ -38,7 +38,7 @@ const Catalog = () => {
         <input
           type="text"
           value={search}
-          onChange={filter}
+          onChange={onSearchChangeHandler}
           placeholder="Search..."
           className="catalog__searchName"
           autoComplete="off"
