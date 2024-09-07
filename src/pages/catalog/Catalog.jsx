@@ -6,6 +6,7 @@ import "./Catalog.scss";
 const Catalog = () => {
   const { products, getProducts } = useContext(ProductContext);
   const [search, setSearch] = useState("");
+  const [price, setPrice] = useState(0);
   const [result, setResult] = useState([]);
 
   useEffect(() => {
@@ -14,22 +15,37 @@ const Catalog = () => {
 
   useEffect(() => {
     setResult(products);
+    setPrice("");
     setSearch("");
   }, [products]);
 
   useEffect(() => {
-    if (search === "") return setResult(products);
+    filterSearch();
+  }, [search, price]);
 
+  const onSearchChangeHandler = (event) => {
+    const { name, value } = event.target;
+    if (name === "name") {
+      setSearch(value);
+    } else {
+      setPrice(value);
+    }
+  };
+
+  const filterSearch = () => {
     setResult(
       products.filter((product) => {
         return product.name.toLowerCase().includes(search.toLowerCase());
       }),
     );
-  }, [search]);
 
-  const onSearchChangeHandler = (event) => {
-    const { value } = event.target;
-    setSearch(value);
+    if (price) {
+      setResult(
+        result.filter((product) => {
+          return product.price === Number(price);
+        }),
+      );
+    }
   };
 
   return (
@@ -37,10 +53,21 @@ const Catalog = () => {
       <div className="catalog__search">
         <input
           type="text"
+          name="name"
           value={search}
           onChange={onSearchChangeHandler}
           placeholder="Search..."
           className="catalog__searchName"
+          autoComplete="off"
+        />
+
+        <input
+          type="number"
+          name="price"
+          value={price}
+          onChange={onSearchChangeHandler}
+          placeholder="0"
+          className="catalog__searchPrice"
           autoComplete="off"
         />
       </div>
