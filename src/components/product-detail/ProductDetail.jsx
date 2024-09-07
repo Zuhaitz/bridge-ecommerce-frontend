@@ -1,21 +1,21 @@
-import React, { useContext, useEffect } from "react";
-import { ProductContext } from "../../context/ProductContext/ProductState";
+import "./ProductDetail.scss";
 
-const ProductDetail = () => {
-  const { products, getProducts } = useContext(ProductContext);
-
-  useEffect(() => {
-    getProducts();
-    console.log("me");
-  }, []);
-
+const ProductDetail = ({ product }) => {
+  const { name, description, price } = product;
   return (
-    products &&
-    products.map((product) => (
-      <div className="product" key={product._id}>
-        <h2>{product.title}</h2>
+    <div className="product">
+      <div className="product__image"></div>
+      <div className="product__informationProduct">
+        <div className="text">
+          <p className="product__title">{name}</p>
+          <p className="product__description">{description}</p>
+        </div>
+
+        <p className="product__price">{price}</p>
       </div>
-    ))
+
+      <button className="product__addButton">BUY</button>
+    </div>
   );
 };
 export default ProductDetail;

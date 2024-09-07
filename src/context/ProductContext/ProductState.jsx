@@ -8,13 +8,16 @@ const initialState = {
 
 export const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(ProductReducer, initialState);
+
   const getProducts = async () => {
     const res = await axios.get("http://localhost:3000/products/");
+
     dispatch({
       type: "GET_PRODUCTS",
-      payload: res.data.products,
+      payload: res.data,
     });
   };
+
   return (
     <ProductContext.Provider
       value={{

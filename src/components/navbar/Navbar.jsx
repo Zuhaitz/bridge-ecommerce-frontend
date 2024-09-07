@@ -23,7 +23,7 @@ const Navbar = () => {
         <a href="/" className="navbar__link">
           <p>Home</p>
         </a>
-        <a href="#" className="navbar__link">
+        <a href="/catalog" className="navbar__link">
           <p>Catalog</p>
         </a>
         {token ? (
