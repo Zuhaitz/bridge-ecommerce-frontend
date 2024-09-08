@@ -23,6 +23,10 @@ export const ProductProvider = ({ children }) => {
   };
 
   const addCart = (product) => {
+    const cartValue = JSON.parse(localStorage.getItem("cart")) || [];
+    cartValue.push(product);
+    localStorage.setItem("cart", JSON.stringify(cartValue));
+
     dispatch({
       type: "ADD_CART",
       payload: product,
