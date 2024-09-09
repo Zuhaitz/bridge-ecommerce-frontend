@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import "./ProductDetail.scss";
+import { ProductContext } from "../../context/ProductContext/ProductState";
 
 const ProductDetail = ({ product }) => {
   const { name, description, price } = product;
+  const { addCart } = useContext(ProductContext);
+  console.log(product);
   return (
     <div className="product">
       <div className="product__image"></div>
@@ -14,7 +18,9 @@ const ProductDetail = ({ product }) => {
         <p className="product__price">{price}</p>
       </div>
 
-      <button className="product__addButton">BUY</button>
+      <button onClick={() => addCart(product)} className="product__addButton">
+        Add Cart
+      </button>
     </div>
   );
 };

@@ -26,6 +26,9 @@ const Navbar = () => {
         <a href="/catalog" className="navbar__link">
           <p>Catalog</p>
         </a>
+        <a href="/cart" className="navbar__link">
+          <p>Cart</p>
+        </a>
         {token ? (
           <>
             <a href="/profile" className="navbar__link">
