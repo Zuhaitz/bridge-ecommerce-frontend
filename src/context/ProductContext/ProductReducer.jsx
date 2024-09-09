@@ -6,6 +6,12 @@ const products = (state, action) => {
         products: action.payload.product,
       };
 
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: [],
+      };
+
     case "ADD_CART":
       return {
         ...state,

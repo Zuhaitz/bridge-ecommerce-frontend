@@ -1,0 +1,22 @@
+.order {
+  width: 80vw;
+
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: $secondary-text-color;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: relative;
+
+  &__button {
+    padding: 20px;
+    width: 100%;
+    color: $secondary-text-color;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0px;
+    border-style: none;
+    background-color: $primary-color;
+    position: absolute;
+    bottom: 0px;
+  }
+}

@@ -22,6 +22,12 @@ export const ProductProvider = ({ children }) => {
     return res;
   };
 
+  const clearCart = () => {
+    dispatch({
+      type: "CLEAR_CART",
+    });
+  };
+
   const addCart = (product) => {
     const cartValue = JSON.parse(localStorage.getItem("cart")) || [];
     cartValue.push(product);
@@ -40,6 +46,7 @@ export const ProductProvider = ({ children }) => {
         cart: state.cart,
         getProducts,
         addCart,
+        clearCart,
       }}
     >
       {children}
