@@ -10,6 +10,7 @@ import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import Catalog from "./pages/catalog/Catalog";
+import Admin from "./pages/admin/Admin";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/catalog" element={<Catalog />} />
+                <Route path="/admin" element={<Admin />} />
               </Routes>
             </main>
 
