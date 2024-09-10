@@ -5,7 +5,11 @@ import { ProductContext } from "../../context/ProductContext/ProductState";
 const ProductDetail = ({ product }) => {
   const { name, description, price } = product;
   const { addCart } = useContext(ProductContext);
-  console.log(product);
+
+  const handleClick = () => {
+    addCart(product);
+  };
+
   return (
     <div className="product">
       <div className="product__image"></div>
@@ -18,7 +22,7 @@ const ProductDetail = ({ product }) => {
         <p className="product__price">{price}</p>
       </div>
 
-      <button onClick={() => addCart(product)} className="product__addButton">
+      <button onClick={handleClick} className="product__addButton">
         Add Cart
       </button>
     </div>

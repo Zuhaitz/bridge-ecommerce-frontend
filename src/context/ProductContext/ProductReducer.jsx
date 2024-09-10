@@ -5,6 +5,7 @@ const products = (state, action) => {
         ...state,
         products: action.payload.product,
       };
+
     case "ADD_CART":
       return {
         ...state,

@@ -3,22 +3,25 @@ import { ProductContext } from "../../context/ProductContext/ProductState";
 
 const Cart = () => {
   const { cart } = useContext(ProductContext);
-  console.log(ProductContext);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-  // if (cart.length <= 0) {
-  //   return <span>No tienes ningún producto añadido</span>;
-  // }
-  const cartItem = cart.map((cartItem, i) => {
-    return (
-      <div className="cart" key={i}>
-        <span>{cartItem.name}</span>
-        <span>{cartItem.price.toFixed(2)} €</span>
-      </div>
-    );
-  });
-  return <>{cartItem}</>;
+  return (
+    <section className="cart">
+      {cart.length > 0 ? (
+        <div className="cart__items">
+          {cart.map((cartItem) => {
+            return (
+              <div className="cart__item" key={cartItem.id}>
+                <p>{cartItem.name}</p>
+                <p>{cartItem.price.toFixed(2)} €</p>
+                <p>{cartItem.id}</p>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div>No tienes ningún producto añadido</div>
+      )}
+    </section>
+  );
 };
 export default Cart;
