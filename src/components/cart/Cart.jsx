@@ -16,20 +16,35 @@ const Cart = () => {
     <section className="cart">
       {cart.length > 0 ? (
         <div className="cart__order">
+          <h2 className="cart__title">Order list</h2>
           <div className="cart__items">
             {cart.map((cartItem) => (
               <div className="cart__item" key={cartItem.id}>
-                <p>{cartItem.name}</p>
-                <p>{cartItem.price.toFixed(2)} €</p>
-                <p>{cartItem.id}</p>
+                <p className="cart__productName">{cartItem.name}</p>
+                <p className="cart__productPrice">
+                  {cartItem.price.toFixed(2)} €
+                </p>
+                <p className="cart__category">{cartItem.id}</p>
               </div>
             ))}
           </div>
-          <button onClick={() => clearCart()}>Clear cart</button>
-          <button onClick={() => createNewOrder()}>Create Order</button>
+          <div className="cart__bttns">
+            <button
+              onClick={() => clearCart()}
+              className="cart__bttns__clearButton"
+            >
+              Clear cart
+            </button>
+            <button
+              onClick={() => createNewOrder()}
+              className="cart__bttns__createButton"
+            >
+              Create Order
+            </button>
+          </div>
         </div>
       ) : (
-        <div>No tienes ningún producto añadido</div>
+        <div className="cart__noProduct">No tienes ningún producto añadido</div>
       )}
     </section>
   );

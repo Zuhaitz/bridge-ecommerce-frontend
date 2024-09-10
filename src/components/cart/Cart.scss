@@ -1,22 +1,96 @@
-.order {
-  width: 80vw;
+.cart {
+  margin: 15px;
 
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: $secondary-text-color;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  position: relative;
+  &__title {
+    margin-bottom: 20px;
 
-  &__button {
-    padding: 20px;
-    width: 100%;
-    color: $secondary-text-color;
-    font-size: 16px;
+    text-align: center;
+    font-size: 30px;
     font-weight: bold;
-    border-radius: 0px;
-    border-style: none;
-    background-color: $primary-color;
-    position: absolute;
-    bottom: 0px;
+
+    color: $primary-text-color;
+  }
+
+  &__noProduct {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+
+    color: $primary-text-color;
+  }
+
+  &__items {
+    width: 80vw;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: $secondary-text-color;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__productName {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__productPrice {
+    font-size: 20px;
+    font-weight: bold;
+    color: $primary-text-color;
+  }
+
+  &__category {
+    display: none;
+  }
+
+  &__bttns {
+    display: flex;
+    justify-content: center;
+
+    &__clearButton {
+      width: auto;
+      padding: 15px 40px;
+      margin-top: 20px;
+
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      border: none;
+      border-radius: 100px;
+
+      cursor: pointer;
+
+      color: $secondary-text-color;
+      background-color: $primary-color;
+    }
+
+    &__createButton {
+      width: auto;
+      padding: 15px 40px;
+      margin-top: 20px;
+      margin-left: 20px;
+
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      border: none;
+      border-radius: 100px;
+
+      cursor: pointer;
+
+      color: $secondary-text-color;
+      background-color: $primary-color;
+    }
   }
 }
