@@ -1,14 +1,21 @@
 import { useContext } from "react";
+import { UserContext } from "../../context/UserContext/UserState";
 import { ProductContext } from "../../context/ProductContext/ProductState";
 import { OrdersContext } from "../../context/OrdersContext/OrdersState";
 import "./Cart.scss";
 
 const Cart = () => {
+  const { token } = useContext(UserContext);
   const { cart, clearCart } = useContext(ProductContext);
   const { createOrder } = useContext(OrdersContext);
 
   const createNewOrder = () => {
-    createOrder(cart);
+    if (!token) return;
+
+    // We select only the ids for the API
+    const listId = cart.map((item) => item.id);
+
+    createOrder(listId);
     clearCart();
   };
 

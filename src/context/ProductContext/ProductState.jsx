@@ -23,6 +23,8 @@ export const ProductProvider = ({ children }) => {
   };
 
   const clearCart = () => {
+    localStorage.removeItem("cart");
+
     dispatch({
       type: "CLEAR_CART",
     });
